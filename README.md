@@ -17,6 +17,7 @@ This template is provided as a starting point and may require customization base
 If you need to deploy in production, check the [2](https://learn.microsoft.com/en-us/samples/azure-samples/azure-ai-studio-secure-bicep/azure-ai-studio-secure-bicep/) for a more secure deployment.
 
 ## Usage
+### Method 1: Using Azure CLI
 1. Clone this repository to your local machine.
 2. Navigate to the cloned directory. Feel free to modify the template to suit your need and names that makes sense to you.
 3. Run the following command to compile the Bicep template:
@@ -32,7 +33,17 @@ az deployment group create --resource-group <resource-group-name> --template-fil
 ```bash
 Run bicep template to create the resources `az deployment sub create --location eastus2 --template-file infra/bicep/main.bicep`
 ```
-
+### Method 2: Using Visual Studio Code
+1. Open Visual Studio Code.
+2. Install the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) for Visual Studio Code.
+3. Clone this repository to your local machine.
+4. Open the cloned directory in Visual Studio Code.
+5. Click on the `main.bicep` file to open it.
+6. Click on the "Run Bicep" button in the top-right corner of the editor.
+![Bicep extension](data\images\bicep-addin.png)
+7. Choose the Azure subscription and resource group where you want to deploy the resources. And Click on Deploy.
+![Bicep extension](data\images\bicep-deploy-vscode.png)
+8. The Bicep template will be compiled and deployed automatically.
 
 ## About Files
 All files in `data_samples/` folder are fake data or found at internet.
