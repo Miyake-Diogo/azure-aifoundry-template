@@ -42,7 +42,7 @@ Run bicep template to create the resources `az deployment sub create --location 
 6. Click on the "Run Bicep" button in the top-right corner of the editor.
 ![Bicep extension](data\images\bicep-addin.png)
 7. Choose the Azure subscription and resource group where you want to deploy the resources. And Click on Deploy.
-![Bicep extension](data\images\bicep-deploy-vscode.png)
+![Bicep deploy](data\images\bicep-deploy-vscode.png)
 8. The Bicep template will be compiled and deployed automatically.
 
 ## About Files
