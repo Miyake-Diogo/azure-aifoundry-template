@@ -10,9 +10,6 @@ param aiHubName string
 @description('AI hub display name')
 param aiHubFriendlyName string = aiHubName
 
-@description('Specifies the AI hub resource id')
-param aiHubId string
-
 @description('Specifies the display name')
 param aiProjectFriendlyName string 
 
@@ -99,7 +96,7 @@ resource AiProject 'Microsoft.MachineLearningServices/workspaces@2024-04-01-prev
     hbiWorkspace: false
     v1LegacyMode: false
     publicNetworkAccess: projectPublicNetworkAccess
-    hubResourceId: aiHubId
+    hubResourceId: aiHub.id
     systemDatastoresAuthMode: 'identity'
   }
 }

@@ -85,7 +85,6 @@ module aiHub 'modules/ai-hub.bicep' = {
     aiProjectName: 'ai${aiProjectName}-${name}-${uniqueSuffix}'
     aiProjectFriendlyName: aiProjectFriendlyName
     projectPublicNetworkAccess: projectPublicNetworkAccess
-    aiHubId: aiHubName
     location: location
     tags: tags
 
