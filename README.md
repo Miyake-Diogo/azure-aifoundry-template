@@ -18,7 +18,7 @@ If you need to deploy in production, check the [2](https://learn.microsoft.com/e
 
 ## Usage
 1. Clone this repository to your local machine.
-2. Navigate to the cloned directory.
+2. Navigate to the cloned directory. Feel free to modify the template to suit your need and names that makes sense to you.
 3. Run the following command to compile the Bicep template:
 
 ```bash
@@ -28,8 +28,17 @@ bicep build main.bicep
 ```bash
 az deployment group create --resource-group <resource-group-name> --template-file main.json
 ```
+5. Or just run:
+```bash
+Run bicep template to create the resources `az deployment sub create --location eastus2 --template-file infra/bicep/main.bicep`
+```
 
-# Reference
+
+## About Files
+All files in `data_samples/` folder are fake data or found at internet.
+
+
+# References
 1. [Azure AI Foundry Simple Template](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/create-azure-ai-hub-template?tabs=cli)
 2. [Deploy Secure Azure Ai Foundry via Bicep](https://learn.microsoft.com/en-us/samples/azure-samples/azure-ai-studio-secure-bicep/azure-ai-studio-secure-bicep/)
 
