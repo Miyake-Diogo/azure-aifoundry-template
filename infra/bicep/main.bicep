@@ -29,15 +29,27 @@ param aiHubDescription string = 'This is an example AI resource for use in Azure
 @description('Azure region used for the deployment of all resources.')
 param location string = 'eastus2'
 
+@description('Specifies the name for the Azure AI Foundry Hub Project workspace.')
+param aiProjectName string = 'prj'
+
+@description('Specifies the friendly name for the Azure AI Foundry Hub Project workspace.')
+param aiProjectFriendlyName string = 'AI Foundry Hub Project'
+
+@description('Specifies the public network access for the Azure AI Project workspace.')
+param projectPublicNetworkAccess string = 'Enabled'
+
 @description('Set of tags to apply to all resources.')
-param tags object = {}
+param tags object = {
+  'environment': 'sandbox'
+  'purpose': 'demo'
+  'customer': 'contoso'
+}
+
 
 // Variables
 var name = toLower('${aiHubName}')
 
 // Create a short, unique suffix, that will be unique to each resource group
-//var uniqueSuffix = '${uniqueString(resourceGroupName)}'
-
 var uniqueSuffix = substring(uniqueString(resourceGroupName), 0, 4)
 
 // Create a resource group for the deployment
@@ -70,6 +82,10 @@ module aiHub 'modules/ai-hub.bicep' = {
     aiHubName: 'aih-${name}-${uniqueSuffix}'
     aiHubFriendlyName: aiHubFriendlyName
     aiHubDescription: aiHubDescription
+    aiProjectName: 'ai${aiProjectName}-${name}-${uniqueSuffix}'
+    aiProjectFriendlyName: aiProjectFriendlyName
+    projectPublicNetworkAccess: projectPublicNetworkAccess
+    aiHubId: aiHubName
     location: location
     tags: tags
 
@@ -80,5 +96,6 @@ module aiHub 'modules/ai-hub.bicep' = {
     containerRegistryId: aiDependencies.outputs.containerRegistryId
     keyVaultId: aiDependencies.outputs.keyvaultId
     storageAccountId: aiDependencies.outputs.storageId
+
   }
 }

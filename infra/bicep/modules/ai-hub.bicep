@@ -1,5 +1,3 @@
-// Creates an Azure AI resource with proxied endpoints for the Azure AI services provider
-
 @description('Azure region of the deployment')
 param location string
 
@@ -11,6 +9,18 @@ param aiHubName string
 
 @description('AI hub display name')
 param aiHubFriendlyName string = aiHubName
+
+@description('Specifies the AI hub resource id')
+param aiHubId string
+
+@description('Specifies the display name')
+param aiProjectFriendlyName string 
+
+@description('Specifies the display name')
+param aiProjectName string 
+
+@description('Specifies the public network access for the machine learning workspace.')
+param projectPublicNetworkAccess string
 
 @description('AI hub description')
 param aiHubDescription string
@@ -68,6 +78,29 @@ resource aiHub 'Microsoft.MachineLearningServices/workspaces@2023-08-01-preview'
         ResourceId: aiServicesId
       }
     }
+  }
+}
+
+// Resources
+resource AiProject 'Microsoft.MachineLearningServices/workspaces@2024-04-01-preview' = {
+  name: aiProjectName
+  location: location
+  tags: tags
+  kind: 'Project'
+  sku: {
+    name: 'Basic'
+    tier: 'Basic'
+  }
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    friendlyName: aiProjectFriendlyName
+    hbiWorkspace: false
+    v1LegacyMode: false
+    publicNetworkAccess: projectPublicNetworkAccess
+    hubResourceId: aiHubId
+    systemDatastoresAuthMode: 'identity'
   }
 }
 
