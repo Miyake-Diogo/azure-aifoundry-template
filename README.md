@@ -39,9 +39,9 @@ Run bicep template to create the resources `az deployment sub create --location 
 3. Clone this repository to your local machine.
 4. Open the cloned directory in Visual Studio Code.
 5. Click on the `main.bicep` file to open it.
-6. Click on the "Run Bicep" button in the top-right corner of the editor.
+6. Click on the "Run Bicep" button in the top-right corner of the editor.  
 ![Bicep extension](data\images\bicep-addin.png)
-7. Choose the Azure subscription and resource group where you want to deploy the resources. And Click on Deploy.
+7. Choose the Azure subscription and resource group where you want to deploy the resources. And Click on Deploy.  
 ![Bicep deploy](data\images\bicep-deploy-vscode.png)
 8. The Bicep template will be compiled and deployed automatically.
 
